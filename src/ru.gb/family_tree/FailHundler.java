@@ -13,10 +13,8 @@ public class FailHundler {
     }
 
     public void Read(String nameFile) {
-        ObjectInputStream objectInputStream = new ObjectInputStream(
-                new FileInputStream(nameFile));
-        List<Human> igorRestored = (Person) objectInputStream.readObject();
-        Person renatRestored = (Person) objectInputStream.readObject();
+        ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(nameFile));
+        List<Human> restoredList = (List<Human>) objectInputStream.readObject();
         objectInputStream.close();
     }
 }
