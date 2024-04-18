@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Human implements Serializable {
+public class Human implements Serializable, Comparable<Human> {
     private String name;
     private LocalDate dob, dod;
     private Gender gender;
@@ -199,4 +199,9 @@ public class Human implements Serializable {
         }
         return res.toString();
     }
+    @Override
+    public int compareTo(Student o) {
+        return this.name.compareTo(o.name);
+    }
+    
 }

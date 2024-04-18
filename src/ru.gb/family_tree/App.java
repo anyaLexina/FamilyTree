@@ -10,7 +10,8 @@ public class App {
         Human human1 = new Human("Anton Vas Vas", Gender.Female, LocalDate.of(13, 10, 2000));
         List<Human> family_tree = new ArrayList<>();
         family_tree.add(human1);
-        FileHandler fHandler = new FileHandler();
-        fHandler.Write(family_tree);
+        Human human2 = new Human("art", Gender.Male, LocalDate.of(13, 10, 2001));
+family_tree.add(human2);
+        System.out.println(family_tree.sort(HumanComparatorByAge));
     }
 }

@@ -4,7 +4,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
-public class FailHundler {
+public class FileHandler {
     public void Write(List<Human> humanList, String nameFile) {
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(
                 new FileOutputStream(nameFile));
