@@ -99,4 +99,16 @@ public class FamilyTree implements Serializable {
         }
         return sb.toString();
     }
+    public void sortByName(){
+        humanList.sort(new HumanComparatorByName());
+    }
+
+    public void sortByAge(){
+        humanList.sort(new HumanComparatorByAge());
+    }
+
+    @Override
+    public Iterator<Human> iterator() {
+        return new HumanIterator(humanList);
+    }
 }
