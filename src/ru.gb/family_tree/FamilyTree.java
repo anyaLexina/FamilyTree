@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FamilyTree implements Serializable {
+public class FamilyTree implements Serializable, Iterator<Human> {
     private final List<Human> humanList;
 
     public FamilyTree(List<Human> humanList) {
