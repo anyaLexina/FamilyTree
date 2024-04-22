@@ -1,10 +1,12 @@
+package ru.gb.familyTree;
+
 import java.util.Comparator;
 
 import ru.gb.family_tree.Human;
 
-public class HumanComporatorByName implements Comparator<Human> {
+public class FamilyObjComporatorByName implements Comparator<T> {
     @Override
-    public int compare(Human o1, Human o2) {
+    public int compare(T o1, T o2) {
         return o1.getName().compareTo(o2.getName());
     }
 }

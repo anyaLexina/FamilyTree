@@ -1,4 +1,4 @@
-package ru.gb.family_tree;
+package ru.gb.familyTree;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ public class App {
         List<Human> family_tree = new ArrayList<>();
         family_tree.add(human1);
         Human human2 = new Human("art", Gender.Male, LocalDate.of(13, 10, 2001));
-family_tree.add(human2);
+        family_tree.add(human2);
         System.out.println(family_tree.sort(HumanComparatorByAge));
     }
 }
