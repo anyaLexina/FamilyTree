@@ -1,4 +1,4 @@
-package src.ru.gb.familyTree;
+package src.familyTree.model;
 
 public interface FamilyObject {
     String getName();

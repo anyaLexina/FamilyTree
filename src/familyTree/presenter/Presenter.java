@@ -1,7 +1,8 @@
-package src.ru.gb.familyTree;
+package src.familyTree.presenter;
+
+import src.familyTree.model.Human;
 
 public class Presenter {
-
     private View view;
     private FamilyTree<T> familyTree;
 

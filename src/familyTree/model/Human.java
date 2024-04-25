@@ -1,4 +1,4 @@
-package src.ru.gb.familyTree;
+package src.familyTree.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -201,7 +201,7 @@ public class Human implements Serializable, Comparable<Human>, FamilyObject {
     }
 
     @Override
-    public int compareTo(Student o) {
+    public int compareTo(Human o) {
         return this.name.compareTo(o.name);
     }
 

@@ -1,4 +1,4 @@
-package src.ru.gb.familyTree;
+package src.familyTree.model;
 
 public class FamilyObjComparatorByAge<T extends FamilyObject> implements Comparator<T> {
     @Override
