@@ -1,4 +1,4 @@
-package ru.gb.familyTree;
+package src.ru.gb.familyTree;
 
 public class HumanIterator implements Iterator<Human> {
     private int index;

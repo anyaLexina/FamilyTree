@@ -1,4 +1,4 @@
-package ru.gb.familyTree;
+package src.ru.gb.familyTree;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -101,11 +101,11 @@ public class FamilyTree<T extends FamilyObject> implements Serializable, Iterabl
     }
 
     public void sortByName() {
-        humanList.sort(new HumanComparatorByName());
+        humanList.sort(new FamilyObjComparatorByName<>());
     }
 
     public void sortByAge() {
-        humanList.sort(new HumanComparatorByAge());
+        humanList.sort(new FamilyObjComparatorByAge<>());
     }
 
     @Override

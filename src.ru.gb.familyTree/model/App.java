@@ -1,4 +1,4 @@
-package ru.gb.familyTree;
+package src.ru.gb.familyTree;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
