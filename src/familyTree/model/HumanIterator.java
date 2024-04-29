@@ -1,5 +1,8 @@
 package src.familyTree.model;
 
+import java.util.Iterator;
+import java.util.List;
+
 public class HumanIterator implements Iterator<Human> {
     private int index;
     private List<Human> humanList;
@@ -15,7 +18,7 @@ public class HumanIterator implements Iterator<Human> {
 
     @Override
     public Human next() {
-        return humantList.get(index++);
+        return humanList.get(index++);
     }
 
 }
