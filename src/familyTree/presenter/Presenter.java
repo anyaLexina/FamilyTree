@@ -7,32 +7,51 @@ import javax.swing.text.View;
 import src.familyTree.model.FamilyTree;
 import src.familyTree.model.Gender;
 import src.familyTree.model.Human;
+import src.familyTree.model.Servis;
 
 public class Presenter {
     private View view;
-    private FamilyTree<Human> familyTree;
+    private Servis servis;
 
     public Presenter(View view) {
         this.view = view;
-        this.familyTree = new FamilyTree<>();
+        this.servis =  new Servis();
     }
 
-    public boolean add(String name, Gender gender, LocalDate birthDate) {
-        return familyTree.add(new Human(name, gender, birthDate));
+    public boolean add(String name, Gender gender, LocalDate birthDate, LocalDate deathDate) {
+        return Servis(name, gender, birthDate, deathDate);
     }
 
     public void getFamilyTreeListInfo() {
-        String info = familyTree.toString();
+        String info = servis.getFamilyTree();
         view.printAnswer(info);
     }
 
     public void sortByAge() {
-        familyTree.sortByAge();
+        servis.sortByAge();
         getFamilyTreeListInfo();
     }
 
     public void sortByName() {
-        familyTree.sortByName();
+        servis.sortByName();
         getFamilyTreeListInfo();
     }
+    public void read(String nameFile){
+        servis.read(nameFile);
+        getFamilyTreeListInfo();
+    }
+    public void write(List<Human> familyTree, String nameFile){
+        servis.write(familyTree, nameFile);
+        getFamilyTreeListInfo();
+    }    
+    public Human getHuman(String name){
+        return servis.getHuman(name);
+    }
+    public void addChild(Human human, String name, Gender gender, LocalDate birthDate, LocalDate deathDate ){
+        servis.addChild(human, name, gender, birthDate, deathDate);
+    }
+    public void addParent(Human human, String name, Gender gender, LocalDate birthDate, LocalDate deathDate){
+        servis.addParent(human, name, gender, birthDate, deathDate);
+    }
+ 
 }

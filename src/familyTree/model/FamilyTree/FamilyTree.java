@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import src.familyTree.model.Human.Human;
+
 public class FamilyTree<T extends FamilyObject> implements Serializable, Iterable<Human> {
     private final List<T> humanList;
 
@@ -53,14 +55,13 @@ public class FamilyTree<T extends FamilyObject> implements Serializable, Iterabl
         return res;
     }
 
-    public List<T> getByName(String name) {
-        List<T> res = new ArrayList<>();
+    public Human getHuman(String name) {
         for (T human : humanList) {
             if (human.getName().equals(name)) {
-                res.add(human);
+                return human;
             }
+            else return null;
         }
-        return res;
     }
 
     public boolean setWedding(T human1, T human2) {

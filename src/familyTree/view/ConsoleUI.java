@@ -3,8 +3,9 @@ package src.familyTree.view;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import src.familyTree.model.Gender;
+import src.familyTree.model.Human.Human;
 import src.familyTree.presenter.Presenter;
+
 
 public class ConsoleUI implements View {
     private static final String INPUT_ERROR = "Вы ввели неверное значение";
@@ -53,9 +54,11 @@ public class ConsoleUI implements View {
 
     public void add() {
         String name = name();
-        LocalDate age = age();
         Gender gender = gender();
-        presenter.add(name, gender, age);
+        LocalDate birthDate = birthDate();
+        LocalDate deathDate = deathDate();
+        scanner.nextLine();
+        presenter.add(name, gender, birthDate, deathDate);
     }
 
     private void hello() {
@@ -98,20 +101,6 @@ public class ConsoleUI implements View {
         System.out.println(INPUT_ERROR);
     }
 
-    private LocalDate age() {
-        System.out.println("Укажите возраст");
-        System.out.println("Введите год");
-        int year = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("Введите месяц");
-        int month = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("Введите день");
-        int day = scanner.nextInt();
-        scanner.nextLine();
-        return LocalDate.of(year, month, day);
-    }
-
     private Gender gender() {
         System.out.println("Укажите гендер");
         System.out.println("1. мужской");
@@ -123,10 +112,62 @@ public class ConsoleUI implements View {
         else
             return Gender.Female;
     }
-
-    private String name() {
-        System.out.println("Введите имя");
+    private LocalDate birthDate(){
+        System.out.println("Введите год рождения: ");
+        int year = scanner.nextInt();
+        System.out.println("Введите месяц: ");
+        int month = scanner.nextInt();
+        System.out.println("Введите день: ");
+        int day = scanner.nextInt();
+        LocalDate birthDate = LocalDate.of(year, month, day);
+        return birthDate;
+    }
+    private LocalDate daethDate(){
+        System.out.println("Введите год смерти: ");
+        int year = scanner.nextInt();
+        System.out.println("Введите месяц: ");
+        int month = scanner.nextInt();
+        System.out.println("Введите день: ");
+        int day = scanner.nextInt();
+        LocalDate deathDate = LocalDate.of(year, month, day);
+        return deathDate;
+    }
+    private String name(){
+        System.out.println("Введите имя человека: ");
         String name = scanner.nextLine();
         return name;
+    }
+ 
+    public void addCildren(){
+        System.out.println("Выбере, кому добавить ребенка");
+        getFamilyTreeListInfo();
+        System.out.println("Введите имя человека: ");
+        String name = scanner.nextLine();
+        Human human = presenter.getHuman(name);
+        if(human != null){
+            String newName = name();
+            Gender gender = gender();
+            LocalDate birthDate = birthDate();
+            LocalDate deathDate = daethDate();
+            presenter.addChild(human, newName, birthDate, birthDate);
+
+        }
+        else System.out.println("Человек не найден");
+    }
+    public void addParent(){
+        System.out.println("Выбере, кому добавить родиетля");
+        getFamilyTreeListInfo();
+        System.out.println("Введите имя человека: ");
+        String name = scanner.nextLine();
+        Human human = presenter.getHuman(name);
+        if(human != null){
+            String newName = name();
+            Gender gender = gender();
+            LocalDate birthDate = birthDate();
+            LocalDate deathDate = daethDate();
+            presenter.addChild(human, newName, birthDate, birthDate);
+
+        }
+        else System.out.println("Человек не найден");
     }
 }

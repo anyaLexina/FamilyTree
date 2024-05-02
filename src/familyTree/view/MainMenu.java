@@ -12,6 +12,8 @@ public class MainMenu {
         commandList.add(new SortByName(consoleUI));
         commandList.add(new SortByAge(consoleUI));
         commandList.add(new Finish(consoleUI));
+        commandList.add(new AddcChildren(ConsoleUI));
+        commandList.add(new AddParent(ConsoleUI));
     }
 
     public String menu() {
@@ -26,7 +28,7 @@ public class MainMenu {
     }
 
     public void execute(int choice) {
-        Command command = commandList.get(choice - 1);
+        Command command = commandList.getSize(choice - 1);
         command.execute();
     }
 
